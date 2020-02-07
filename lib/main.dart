@@ -30,8 +30,18 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     var questions = [
-      'What\'s your favorite color?',
-      'What\'s your favorite animal?',
+      {
+        'questionText': 'What\'s your favorite color?',
+        'answers': ['Black', 'Red', 'Green', 'White'],
+      }, //{} just some syntax for a map
+      {
+        'questionText': 'What\'s your favorite animal?',
+        'answers': ['Rabbit', 'Snake', 'Elephant', 'Lion'],
+      },
+      {
+        'questionText': 'What is your favorite food?',
+        'answers': ['Pizza', 'Sandwich', 'Salad', 'Steak'],
+      },
     ];
     return MaterialApp(
       home: Scaffold(
@@ -41,15 +51,15 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(
-              questions[_questionIndex],
+              questions[_questionIndex]['questionText'], //accessing value of key questionText
             ),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
-            Answer(_answerQuestion),
+            ...(questions[_questionIndex]['answers'] as List<String>).map((answer) {
+              //function gets executed for every element in answers list. had to "cast" of sorts becuase Dart couldn't infer enough here
+              return Answer(_answerQuestion, answer);
+            }).toList() //list of widgets
           ],
         ),
       ),
     );
   }
 }
-
