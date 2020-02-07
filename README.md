@@ -1,6 +1,6 @@
-# fluttest
+# Flutter Quiz app
 
-A new Flutter project.
+The first of the projects in https://www.youtube.com/watch?v=x0uinJvhNxI&t=11354s
 
 ## Getting Started
 
