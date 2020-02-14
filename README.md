@@ -4,6 +4,8 @@ The first of the projects in https://www.youtube.com/watch?v=x0uinJvhNxI&t=11354
 
 ## Getting Started
 
+Used Flutter Master Branch in order to enable list spreading
+
 This project is a starting point for a Flutter application.
 
 A few resources to get you started if this is your first Flutter project:

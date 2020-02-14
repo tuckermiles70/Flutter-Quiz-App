@@ -51,9 +51,11 @@ class _MyAppState extends State<MyApp> {
         body: Column(
           children: [
             Question(
-              questions[_questionIndex]['questionText'], //accessing value of key questionText
+              questions[_questionIndex]
+                  ['questionText'], //accessing value of key questionText
             ),
-            ...(questions[_questionIndex]['answers'] as List<String>).map((answer) {
+            ...(questions[_questionIndex]['answers'] as List<String>)
+                .map((answer) {
               //function gets executed for every element in answers list. had to "cast" of sorts becuase Dart couldn't infer enough here
               return Answer(_answerQuestion, answer);
             }).toList() //list of widgets
