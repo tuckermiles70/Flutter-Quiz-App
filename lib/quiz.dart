@@ -21,9 +21,9 @@ class Quiz extends StatelessWidget {
           questions[questionIndex]
               ['questionText'], //accessing value of key questionText
         ),
-        ...(questions[questionIndex]['answers'] as List<String>).map((answer) {
+        ...(questions[questionIndex]['answers'] as List<Map<String, Object>>).map((answer) {
           //function gets executed for every element in answers list. had to "cast" of sorts becuase Dart couldn't infer enough here
-          return Answer(answerQuestion, answer);
+          return Answer(() => answerQuestion(answer['score']), answer['text']);
         }).toList() //list of widgets
       ],
     );
